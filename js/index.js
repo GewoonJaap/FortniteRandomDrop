@@ -18,9 +18,14 @@ $(document).ready(function(){
         var testTop = (1000/map.height())*top;
         var testLeft = (1000/map.width())*left;
 
+        var timeOut = true;
 
-        while(isOnWater(testLeft,testTop) || isOnEdge(left, top)){
-            console.log('new');
+        setInterval(function(){
+            timeOut = false;
+        }, 2000);
+
+        while(isOnWater(testLeft,testTop) || isOnEdge(left, top && timeOut)){
+            
             top = Math.floor(Math.random()*map.height());
             left = Math.floor(Math.random()*map.width());
 
