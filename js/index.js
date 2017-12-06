@@ -20,11 +20,13 @@ $(document).ready(function(){
 
         var timeOut = true;
 
-        setInterval(function(){
+        setTimeout(function(){
             timeOut = false;
+            //console.log('timed out');
         }, 2000);
 
-        while(isOnWater(testLeft,testTop) || isOnEdge(left, top && timeOut)){
+        while(isOnWater(testLeft,testTop) || isOnEdge(left, top) && timeOut){
+            //console.log('new' + ' timeout: '+timeOut);
             
             top = Math.floor(Math.random()*map.height());
             left = Math.floor(Math.random()*map.width());
@@ -33,11 +35,11 @@ $(document).ready(function(){
             testLeft = (1000/map.width())*left;
         }
 
-        console.log('--------------');
-        console.log(isOnWater(testLeft,testTop));
-        console.log('top', top);
-        console.log('left', left);
-        console.log('--------------');
+        // console.log('--------------');
+        // console.log(isOnWater(testLeft,testTop));
+        // console.log('top', top);
+        // console.log('left', left);
+        // console.log('--------------');
 
         $('#pointer').css({
             top: top,
