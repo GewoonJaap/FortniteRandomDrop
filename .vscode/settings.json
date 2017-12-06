@@ -1,0 +1,15 @@
+{
+    "liveSassCompile.settings.formats":[
+        {
+            //"format": "compressed",
+            //"extensionName": ".min.css",
+            "savePath": "/css"
+        }
+    ],
+    "liveSassCompile.settings.excludeList": [
+       "**/node_modules/**",
+       ".vscode/**",
+       "sass/res/**"
+    ],
+    "beautify.tabSize": 1
+}
