@@ -1,5 +1,14 @@
 $(document).ready(function(){
 
+    firebase.database().ref('frd/counter').once('value', function(snap){
+        console.log(snap.val());
+    });
+
+    firebase.database().ref('frd/counter').on('value', function(snap){
+        console.log(snap.val());
+        $('#count-num').html(snap.val());
+    });
+
     var ctx = $('#canvas')[0].getContext("2d");
 
     var image = new Image();
@@ -68,7 +77,14 @@ $(document).ready(function(){
                 borderWidth: '4',
                 transform: 'scale(1)'
             });
-        },300)
+        },300);
+
+        firebase.database().ref('frd').transaction(function(frd){
+            if(frd){
+                frd.counter++;
+            }
+            return frd;
+        });
     });
 
 
@@ -164,4 +180,6 @@ $(document).ready(function(){
 
 
     resize();
+
+
 });
