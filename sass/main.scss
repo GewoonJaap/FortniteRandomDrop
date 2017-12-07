@@ -40,6 +40,10 @@ html, body{
     -moz-box-shadow: 4px 4px 5px 0px rgba(11,108,140,1);
     box-shadow: 4px 4px 5px 0px rgba(11,108,140,1);
 
+    &:hover{
+        opacity: .9;
+    }
+
     &:active{
         -webkit-box-shadow: 2px 2px 5px 0px rgba(11,108,140,1);
         -moz-box-shadow: 2px 2px 5px 0px rgba(11,108,140,1);

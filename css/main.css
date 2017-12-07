@@ -60,6 +60,10 @@ html, body {
   box-shadow: 4px 4px 5px 0px #0b6c8c;
 }
 
+#where:hover {
+  opacity: .9;
+}
+
 #where:active {
   -webkit-box-shadow: 2px 2px 5px 0px #0b6c8c;
   -moz-box-shadow: 2px 2px 5px 0px #0b6c8c;

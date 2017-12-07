@@ -43,8 +43,16 @@ $(document).ready(function(){
 
         $('#pointer').css({
             top: top,
-            left: left
+            left: left,
+            borderWidth: '1',
+            transform: 'scale(10)'
         });
+        setTimeout(function(){
+            $('#pointer').css({
+                borderWidth: '4',
+                transform: 'scale(1)'
+            });
+        },300)
     });
 
 
