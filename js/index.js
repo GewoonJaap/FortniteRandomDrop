@@ -12,8 +12,8 @@ $(document).ready(function(){
     var pointLoc = {
         x: 100,
         y: 100,
-        xPerc: 0,
-        yPerc: 0
+        xPerc: .5,
+        yPerc: .5
     };
     
     $('#where').click(function(){

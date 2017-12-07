@@ -40,6 +40,16 @@ html, body {
   /* IE6-9 */
 }
 
+#count {
+  font-family: 'Burbank';
+  position: fixed;
+  color: white;
+  top: 10px;
+  left: 10px;
+  font-size: 25px;
+  z-index: 110;
+}
+
 #where {
   color: white;
   background-color: #1ac2fe;
@@ -111,6 +121,20 @@ html, body {
 .tall {
   height: auto;
   width: 100%;
+}
+
+@media screen and (max-width: 775px) {
+  #where {
+    top: auto;
+    bottom: 20px;
+    width: 80%;
+    left: 50%;
+    margin-left: -40%;
+  }
+}
+
+#count {
+  display: none;
 }
  
 
