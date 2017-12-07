@@ -2,7 +2,7 @@ $(document).ready(function(){
 
     firebase.database().ref('frd/counter').on('value', function(snap){
         //console.log(snap.val());
-        $('#count-num').html(snap.val());
+        $('#count-num').html(numberWithCommas(snap.val()));
     });
 
     var ctx = $('#canvas')[0].getContext("2d");
@@ -174,5 +174,10 @@ $(document).ready(function(){
 
     resize();
 
+    function numberWithCommas(x){
+        var parts = x.toString().split(".");
+        parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        return parts.join(".");
+    }
 
 });
