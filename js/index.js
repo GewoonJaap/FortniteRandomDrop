@@ -1,11 +1,7 @@
 $(document).ready(function(){
 
-    firebase.database().ref('frd/counter').once('value', function(snap){
-        console.log(snap.val());
-    });
-
     firebase.database().ref('frd/counter').on('value', function(snap){
-        console.log(snap.val());
+        //console.log(snap.val());
         $('#count-num').html(snap.val());
     });
 
@@ -79,11 +75,8 @@ $(document).ready(function(){
             });
         },300);
 
-        firebase.database().ref('frd').transaction(function(frd){
-            if(frd){
-                frd.counter++;
-            }
-            return frd;
+        firebase.database().ref('frd/counter').transaction(function(curValue){
+            return (curValue||0) + 1;
         });
     });
 
