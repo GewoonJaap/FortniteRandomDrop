@@ -83,12 +83,13 @@ $(document).ready(function(){
 
     function isOnEdge(left, top){
         var map = $('#map');
+        var oRange = 100;
         var range = 50;
 
-        if(between(left, -range, range) || between(left, map.width()-range, map.width()+range)){
+        if(between(left, -oRange, range) || between(left, map.width()-range, map.width()+oRange)){
             return true;
         }
-        if(between(top, -range, range) || between(top, map.height()-range, map.height()+range)){
+        if(between(top, -oRange, range) || between(top, map.height()-range, map.height()+oRange)){
             return true;
         }
         return false;
