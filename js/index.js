@@ -8,12 +8,22 @@ $(document).ready(function(){
         ctx.drawImage(this,0,0);
         $('#cover').fadeOut();
     }
+
+    var pointLoc = {
+        x: 100,
+        y: 100,
+        xPerc: 0,
+        yPerc: 0
+    };
     
     $('#where').click(function(){
         var map = $('#map');
 
-        var top = Math.floor(Math.random()*map.height()-30);
-        var left = Math.floor(Math.random()*map.width()-30);
+        var topRan = Math.random();
+        var leftRan = Math.random();
+
+        var top = Math.floor(topRan*map.height()-30);
+        var left = Math.floor(leftRan*map.width()-30);
 
         var testTop = (1000/map.height())*top;
         var testLeft = (1000/map.width())*left;
@@ -27,13 +37,19 @@ $(document).ready(function(){
 
         while(isOnWater(testLeft,testTop) || isOnEdge(left, top) && timeOut){
             //console.log('new' + ' timeout: '+timeOut);
+
+            topRan = Math.random();
+            leftRan = Math.random();
             
-            top = Math.floor(Math.random()*map.height());
-            left = Math.floor(Math.random()*map.width());
+            top = Math.floor(topRan*map.height());
+            left = Math.floor(leftRan*map.width());
 
             testTop = (1000/map.height())*top;
             testLeft = (1000/map.width())*left;
         }
+
+        pointLoc.xPerc = leftRan;
+        pointLoc.yPerc = topRan;
 
         // console.log('--------------');
         // console.log(isOnWater(testLeft,testTop));
@@ -41,9 +57,9 @@ $(document).ready(function(){
         // console.log('left', left);
         // console.log('--------------');
 
+        updatePointer();
+
         $('#pointer').css({
-            top: top,
-            left: left,
             borderWidth: '1',
             transform: 'scale(10)'
         });
@@ -109,5 +125,43 @@ $(document).ready(function(){
 
     function between(x, min, max) {
         return x >= min && x <= max;
-      }
+    }
+
+
+    function updatePointer(){
+        var p = $('#pointer');
+
+        var map = $('#map');
+
+        var top = Math.floor(pointLoc.yPerc*map.height()-30);
+        var left = Math.floor(pointLoc.xPerc*map.width()-30);
+
+
+        p.css({
+            top: top,
+            left: left
+        });
+    }
+
+
+    function resize(){
+        var win = $(window);
+        if(win.height() > win.width()){
+            $('#map').addClass('tall');
+            $('#map').removeClass('wide');
+        }
+        else if(win.height() < win.width()){
+            $('#map').addClass('wide');
+            $('#map').removeClass('tall');
+        }
+
+        updatePointer();
+    }
+
+    $(window).on('resize', function(){
+        resize();
+    });
+
+
+    resize();
 });

@@ -61,8 +61,8 @@ html, body{
     z-index: 10;
 }
 #map{
-    height: 100%;
-    width: auto;
+    // height: 100%;
+    // width: auto;
 }
 #pointer{
     height: 20px;
@@ -85,4 +85,13 @@ html, body{
 
 #canvas{
     display: none;
+}
+
+.wide{
+    height: 100%;
+    width: auto;
+}
+.tall{
+    height: auto;
+    width: 100%;
 }
