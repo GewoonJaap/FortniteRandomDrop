@@ -8,7 +8,7 @@ $(document).ready(function(){
     var ctx = $('#canvas')[0].getContext("2d");
 
     var image = new Image();
-    image.src = './images/fortnite-map-clipped.png';
+    image.src = './images/FNBR_clipped.png';
     image.onload = function(){
         ctx.drawImage(this,0,0);
         $('#cover').fadeOut();
